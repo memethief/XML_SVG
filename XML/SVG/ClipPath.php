@@ -11,33 +11,25 @@
 require_once 'XML/SVG/Element.php';
 
 /**
- * XML_SVG_Tspan
+ * XML_SVG_ClipPath
  *
  * @package XML_SVG
  */
-class XML_SVG_Tspan extends XML_SVG_Element 
+class XML_SVG_ClipPath extends XML_SVG_Element 
 {
-	protected static $tag = 'tspan';
+	protected static $tag = 'clipPath';
 	private static $extra_attributes = array(
 		'class',
 		'style',
 		'externalResourcesRequired',
 		'transform',
-		'lengthAdjust',
-		'x',
-		'y',
-		'dx',
-		'dy',
-		'rotate',
-		'textLength',
-		'lengthAdjust',
+		'clipPathUnits',
 	);
 
 	protected static function getAttributes() {
 		return array_merge(
 			static::$ATTR_CONDITIONAL_PROCESSING,
 			static::$ATTR_CORE,
-			static::$ATTR_GRAPHICAL_EVENT,
 			static::$ATTR_PRESENTATION,
 			static::$extra_attributes
 		);
