@@ -1,13 +1,15 @@
 <?php
 /**
- * Package for building SVG graphics.
+ * W3C DOM-compliant SVG package
  *
- * Copyright 2002-2007 The Horde Project (http://www.horde.org/)
- *
- * @author  Chuck Hagenbuch <chuck@horde.org>
- * @package XML_SVG
+ * @category XML
+ * @author  David Leaman <david@davidleaman.ca>
+ * @package Pear2_XML_SVG
  * @license http://www.fsf.org/copyleft/lgpl.html
  */
+
+namespace PEAR2\XML\SVG;
+
 
 /**
  * XML_SVG_Element
@@ -16,8 +18,12 @@
  * Objects. Extend this class to create a new SVG Element.
  *
  * @package XML_SVG
+ * @property-read string id The value of the ‘id’ attribute on the given element, or the empty string if ‘id’ is not present.
+ * @property-read string xmlbase Corresponds to attribute ‘xml:base’ on the given element.
+ * @property-read XML_SVG_SVGElement ownerSVGElement The nearest ancestor ‘svg’ element. Null if the given element is the outermost svg element.
+ * @property-read SVGElement viewportElement;
  */
-class XML_SVG_Element extends DOMElement
+class Element extends DOMElement
 {
 	protected static $tag = null;
 	public static $ATTR_CONDITIONAL_PROCESSING = array(
@@ -113,6 +119,14 @@ class XML_SVG_Element extends DOMElement
 		'xlink:arcrole', 
 		'xlink:title',
 	);
+
+  /**
+   * attribute DOMString id setraises(DOMException);
+   */
+  private $id;
+             attribute DOMString xmlbase setraises(DOMException);
+               readonly attribute SVGSVGElement ownerSVGElement;
+                 readonly attribute SVGElement viewportElement;
 
 	protected $_attributes = array();
 
