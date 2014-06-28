@@ -2,9 +2,14 @@
 /**
  * W3C DOM-compliant SVG package
  *
+ * DOM compliance is currently in progress. For details on the SVG DOM see:
+ * @link{http://www.w3.org/TR/SVG/svgdom.html}
+ * The definition for this interface is at:
+ * @link{http://www.w3.org/TR/SVG/types.html#InterfaceSVGElement}
+ *
  * @category XML
  * @author  David Leaman <david@davidleaman.ca>
- * @package Pear2_XML_SVG
+ * @package PEAR2_XML_SVG
  * @license http://www.fsf.org/copyleft/lgpl.html
  */
 
@@ -14,8 +19,9 @@ namespace PEAR2\XML\SVG;
 /**
  * XML_SVG_Element
  *
- * This is the base class for the different SVG Element
- * Objects. Extend this class to create a new SVG Element.
+ * All of the SVG DOM interfaces that correspond directly to elements in the
+ * SVG language (such as the SVGPathElement interface for the ‘path’ element)
+ * derive from the SVGElement interface.
  *
  * @package XML_SVG
  * @property-read string id The value of the ‘id’ attribute on the given element, or the empty string if ‘id’ is not present.
@@ -23,7 +29,7 @@ namespace PEAR2\XML\SVG;
  * @property-read XML_SVG_SVGElement ownerSVGElement The nearest ancestor ‘svg’ element. Null if the given element is the outermost svg element.
  * @property-read SVGElement viewportElement;
  */
-class Element extends DOMElement
+class Element extends \DOMElement
 {
 	protected static $tag = null;
 	public static $ATTR_CONDITIONAL_PROCESSING = array(
@@ -121,12 +127,32 @@ class Element extends DOMElement
 	);
 
   /**
-   * attribute DOMString id setraises(DOMException);
+	 * The value of the ‘id’ attribute on the given element, or the empty string
+	 * if ‘id’ is not present.
+	 *
+	 * @var \DOMString
+   * @todo raise DOMException(NO_MODIFICATION_ALLOWED_ERR) on change attempt.
    */
   private $id;
-             attribute DOMString xmlbase setraises(DOMException);
-               readonly attribute SVGSVGElement ownerSVGElement;
-                 readonly attribute SVGElement viewportElement;
+	/**
+	 * Corresponds to attribute ‘xml:base’ on the given element.
+	 *
+	 * @var \DOMString
+   * @todo raise DOMException(NO_MODIFICATION_ALLOWED_ERR) on change attempt.
+	 */
+	private $xmlbase;
+	/**
+	 * The nearest ancestor ‘svg’ element. Null if the given element is the outermost svg element.
+	 *
+	 * @var readonly SVGElement
+	 */
+	private $ownerSVGElement;
+	/**
+	 * The element which established the current viewport. Often, the nearest ancestor ‘svg’ element. Null if the given element is the outermost svg element.
+	 *
+	 * @var readonly SVGElement
+	 */
+	private $viewportElement;
 
 	protected $_attributes = array();
 
