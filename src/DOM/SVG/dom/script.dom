@@ -1,0 +1,12 @@
+interface SVGScriptElement : SVGElement,
+                             SVGURIReference,
+                             SVGExternalResourcesRequired {
+  attribute DOMString type setraises(DOMException);
+};
+interface SVGZoomEvent : UIEvent {
+  readonly attribute SVGRect zoomRectScreen;
+  readonly attribute float previousScale;
+  readonly attribute SVGPoint previousTranslate;
+  readonly attribute float newScale;
+  readonly attribute SVGPoint newTranslate;
+};

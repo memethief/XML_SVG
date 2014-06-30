@@ -1,0 +1,229 @@
+interface SVGElement : Element {
+           attribute DOMString id setraises(DOMException);
+           attribute DOMString xmlbase setraises(DOMException);
+  readonly attribute SVGSVGElement ownerSVGElement;
+  readonly attribute SVGElement viewportElement;
+};
+interface SVGAnimatedBoolean {
+           attribute boolean baseVal setraises(DOMException);
+  readonly attribute boolean animVal;
+};
+interface SVGAnimatedString {
+           attribute DOMString baseVal setraises(DOMException);
+  readonly attribute DOMString animVal;
+};
+interface SVGStringList {
+
+  readonly attribute unsigned long numberOfItems;
+
+  void clear() raises(DOMException);
+  DOMString initialize(in DOMString newItem) raises(DOMException);
+  DOMString getItem(in unsigned long index) raises(DOMException);
+  DOMString insertItemBefore(in DOMString newItem, in unsigned long index) raises(DOMException);
+  DOMString replaceItem(in DOMString newItem, in unsigned long index) raises(DOMException);
+  DOMString removeItem(in unsigned long index) raises(DOMException);
+  DOMString appendItem(in DOMString newItem) raises(DOMException);
+};
+interface SVGAnimatedEnumeration {
+           attribute unsigned short baseVal setraises(DOMException);
+  readonly attribute unsigned short animVal;
+};
+interface SVGAnimatedInteger {
+           attribute long baseVal setraises(DOMException);
+  readonly attribute long animVal;
+};
+interface SVGNumber {
+  attribute float value setraises(DOMException);
+};
+interface SVGAnimatedNumber {
+           attribute float baseVal setraises(DOMException);
+  readonly attribute float animVal;
+};
+interface SVGNumberList {
+
+  readonly attribute unsigned long numberOfItems;
+
+  void clear() raises(DOMException);
+  SVGNumber initialize(in SVGNumber newItem) raises(DOMException);
+  SVGNumber getItem(in unsigned long index) raises(DOMException);
+  SVGNumber insertItemBefore(in SVGNumber newItem, in unsigned long index) raises(DOMException);
+  SVGNumber replaceItem(in SVGNumber newItem, in unsigned long index) raises(DOMException);
+  SVGNumber removeItem(in unsigned long index) raises(DOMException);
+  SVGNumber appendItem(in SVGNumber newItem) raises(DOMException);
+};
+interface SVGAnimatedNumberList {
+  readonly attribute SVGNumberList baseVal;
+  readonly attribute SVGNumberList animVal;
+};
+interface SVGLength {
+
+  // Length Unit Types
+  const unsigned short SVG_LENGTHTYPE_UNKNOWN = 0;
+  const unsigned short SVG_LENGTHTYPE_NUMBER = 1;
+  const unsigned short SVG_LENGTHTYPE_PERCENTAGE = 2;
+  const unsigned short SVG_LENGTHTYPE_EMS = 3;
+  const unsigned short SVG_LENGTHTYPE_EXS = 4;
+  const unsigned short SVG_LENGTHTYPE_PX = 5;
+  const unsigned short SVG_LENGTHTYPE_CM = 6;
+  const unsigned short SVG_LENGTHTYPE_MM = 7;
+  const unsigned short SVG_LENGTHTYPE_IN = 8;
+  const unsigned short SVG_LENGTHTYPE_PT = 9;
+  const unsigned short SVG_LENGTHTYPE_PC = 10;
+
+  readonly attribute unsigned short unitType;
+           attribute float value setraises(DOMException);
+           attribute float valueInSpecifiedUnits setraises(DOMException);
+           attribute DOMString valueAsString setraises(DOMException);
+
+  void newValueSpecifiedUnits(in unsigned short unitType, in float valueInSpecifiedUnits) raises(DOMException);
+  void convertToSpecifiedUnits(in unsigned short unitType) raises(DOMException);
+};
+interface SVGAnimatedLength {
+  readonly attribute SVGLength baseVal;
+  readonly attribute SVGLength animVal;
+};
+interface SVGLengthList {
+
+  readonly attribute unsigned long numberOfItems;
+
+  void clear() raises(DOMException);
+  SVGLength initialize(in SVGLength newItem) raises(DOMException);
+  SVGLength getItem(in unsigned long index) raises(DOMException);
+  SVGLength insertItemBefore(in SVGLength newItem, in unsigned long index) raises(DOMException);
+  SVGLength replaceItem(in SVGLength newItem, in unsigned long index) raises(DOMException);
+  SVGLength removeItem(in unsigned long index) raises(DOMException);
+  SVGLength appendItem(in SVGLength newItem) raises(DOMException);
+};
+interface SVGAnimatedLengthList {
+  readonly attribute SVGLengthList baseVal;
+  readonly attribute SVGLengthList animVal;
+};
+interface SVGAngle {
+
+  // Angle Unit Types
+  const unsigned short SVG_ANGLETYPE_UNKNOWN = 0;
+  const unsigned short SVG_ANGLETYPE_UNSPECIFIED = 1;
+  const unsigned short SVG_ANGLETYPE_DEG = 2;
+  const unsigned short SVG_ANGLETYPE_RAD = 3;
+  const unsigned short SVG_ANGLETYPE_GRAD = 4;
+
+  readonly attribute unsigned short unitType;
+           attribute float value setraises(DOMException);
+           attribute float valueInSpecifiedUnits setraises(DOMException);
+           attribute DOMString valueAsString setraises(DOMException);
+
+  void newValueSpecifiedUnits(in unsigned short unitType, in float valueInSpecifiedUnits) raises(DOMException);
+  void convertToSpecifiedUnits(in unsigned short unitType) raises(DOMException);
+};
+interface SVGAnimatedAngle {
+  readonly attribute SVGAngle baseVal;
+  readonly attribute SVGAngle animVal;
+};
+interface SVGColor : CSSValue {
+
+  // Color Types
+  const unsigned short SVG_COLORTYPE_UNKNOWN = 0;
+  const unsigned short SVG_COLORTYPE_RGBCOLOR = 1;
+  const unsigned short SVG_COLORTYPE_RGBCOLOR_ICCCOLOR = 2;
+  const unsigned short SVG_COLORTYPE_CURRENTCOLOR = 3;
+
+  readonly attribute unsigned short colorType;
+  readonly attribute RGBColor rgbColor;
+  readonly attribute SVGICCColor iccColor;
+
+  void setRGBColor(in DOMString rgbColor) raises(SVGException);
+  void setRGBColorICCColor(in DOMString rgbColor, in DOMString iccColor) raises(SVGException);
+  void setColor(in unsigned short colorType, in DOMString rgbColor, in DOMString iccColor) raises(SVGException);
+};
+interface SVGICCColor {
+           attribute DOMString colorProfile setraises(DOMException);
+  readonly attribute SVGNumberList colors;
+};
+interface SVGRect {
+  attribute float x setraises(DOMException);
+  attribute float y setraises(DOMException);
+  attribute float width setraises(DOMException);
+  attribute float height setraises(DOMException);
+};
+interface SVGAnimatedRect {
+  readonly attribute SVGRect baseVal;
+  readonly attribute SVGRect animVal;
+};
+interface SVGUnitTypes {
+  // Unit Types
+  const unsigned short SVG_UNIT_TYPE_UNKNOWN = 0;
+  const unsigned short SVG_UNIT_TYPE_USERSPACEONUSE = 1;
+  const unsigned short SVG_UNIT_TYPE_OBJECTBOUNDINGBOX = 2;
+};
+interface SVGStylable {
+
+  readonly attribute SVGAnimatedString className;
+  readonly attribute CSSStyleDeclaration style;
+
+  CSSValue getPresentationAttribute(in DOMString name);
+};
+interface SVGLocatable {
+
+  readonly attribute SVGElement nearestViewportElement;
+  readonly attribute SVGElement farthestViewportElement;
+
+  SVGRect getBBox();
+  SVGMatrix getCTM();
+  SVGMatrix getScreenCTM();
+  SVGMatrix getTransformToElement(in SVGElement element) raises(SVGException);
+};
+interface SVGTransformable : SVGLocatable {
+  readonly attribute SVGAnimatedTransformList transform;
+};
+interface SVGTests {
+
+  readonly attribute SVGStringList requiredFeatures;
+  readonly attribute SVGStringList requiredExtensions;
+  readonly attribute SVGStringList systemLanguage;
+
+  boolean hasExtension(in DOMString extension);
+};
+interface SVGLangSpace {
+  attribute DOMString xmllang setraises(DOMException);
+  attribute DOMString xmlspace setraises(DOMException);
+};
+interface SVGExternalResourcesRequired {
+  readonly attribute SVGAnimatedBoolean externalResourcesRequired;
+};
+interface SVGFitToViewBox {
+  readonly attribute SVGAnimatedRect viewBox;
+  readonly attribute SVGAnimatedPreserveAspectRatio preserveAspectRatio;
+};
+interface SVGZoomAndPan {
+
+  // Zoom and Pan Types
+  const unsigned short SVG_ZOOMANDPAN_UNKNOWN = 0;
+  const unsigned short SVG_ZOOMANDPAN_DISABLE = 1;
+  const unsigned short SVG_ZOOMANDPAN_MAGNIFY = 2;
+
+  attribute unsigned short zoomAndPan setraises(DOMException);
+};
+interface SVGViewSpec : SVGZoomAndPan,
+                        SVGFitToViewBox {
+  readonly attribute SVGTransformList transform;
+  readonly attribute SVGElement viewTarget;
+  readonly attribute DOMString viewBoxString;
+  readonly attribute DOMString preserveAspectRatioString;
+  readonly attribute DOMString transformString;
+  readonly attribute DOMString viewTargetString;
+};
+interface SVGURIReference {
+  readonly attribute SVGAnimatedString href;
+};
+interface SVGCSSRule : CSSRule {
+  const unsigned short COLOR_PROFILE_RULE = 7;
+};
+interface SVGRenderingIntent {
+  // Rendering Intent Types
+  const unsigned short RENDERING_INTENT_UNKNOWN = 0;
+  const unsigned short RENDERING_INTENT_AUTO = 1;
+  const unsigned short RENDERING_INTENT_PERCEPTUAL = 2;
+  const unsigned short RENDERING_INTENT_RELATIVE_COLORIMETRIC = 3;
+  const unsigned short RENDERING_INTENT_SATURATION = 4;
+  const unsigned short RENDERING_INTENT_ABSOLUTE_COLORIMETRIC = 5;
+};

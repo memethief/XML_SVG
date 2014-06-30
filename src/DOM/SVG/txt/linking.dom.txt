@@ -1,0 +1,17 @@
+The interface corresponds to the element.
+interface SVGAElement : SVGElement,
+                        SVGURIReference,
+                        SVGTests,
+                        SVGLangSpace,
+                        SVGExternalResourcesRequired,
+                        SVGStylable,
+                        SVGTransformable {
+  readonly attribute SVGAnimatedString target;
+};
+The interface corresponds to the element.
+interface SVGViewElement : SVGElement,
+                           SVGExternalResourcesRequired,
+                           SVGFitToViewBox,
+                           SVGZoomAndPan {
+  readonly attribute SVGStringList viewTarget;
+};

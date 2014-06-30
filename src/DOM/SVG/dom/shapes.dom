@@ -1,0 +1,65 @@
+interface SVGRectElement : SVGElement,
+                           SVGTests,
+                           SVGLangSpace,
+                           SVGExternalResourcesRequired,
+                           SVGStylable,
+                           SVGTransformable {
+  readonly attribute SVGAnimatedLength x;
+  readonly attribute SVGAnimatedLength y;
+  readonly attribute SVGAnimatedLength width;
+  readonly attribute SVGAnimatedLength height;
+  readonly attribute SVGAnimatedLength rx;
+  readonly attribute SVGAnimatedLength ry;
+};
+interface SVGCircleElement : SVGElement,
+                             SVGTests,
+                             SVGLangSpace,
+                             SVGExternalResourcesRequired,
+                             SVGStylable,
+                             SVGTransformable {
+  readonly attribute SVGAnimatedLength cx;
+  readonly attribute SVGAnimatedLength cy;
+  readonly attribute SVGAnimatedLength r;
+};
+interface SVGEllipseElement : SVGElement,
+                              SVGTests,
+                              SVGLangSpace,
+                              SVGExternalResourcesRequired,
+                              SVGStylable,
+                              SVGTransformable {
+  readonly attribute SVGAnimatedLength cx;
+  readonly attribute SVGAnimatedLength cy;
+  readonly attribute SVGAnimatedLength rx;
+  readonly attribute SVGAnimatedLength ry;
+};
+interface SVGLineElement : SVGElement,
+                           SVGTests,
+                           SVGLangSpace,
+                           SVGExternalResourcesRequired,
+                           SVGStylable,
+                           SVGTransformable {
+  readonly attribute SVGAnimatedLength x1;
+  readonly attribute SVGAnimatedLength y1;
+  readonly attribute SVGAnimatedLength x2;
+  readonly attribute SVGAnimatedLength y2;
+};
+interface SVGAnimatedPoints {
+  readonly attribute SVGPointList points;
+  readonly attribute SVGPointList animatedPoints;
+};
+interface SVGPolylineElement : SVGElement,
+                               SVGTests,
+                               SVGLangSpace,
+                               SVGExternalResourcesRequired,
+                               SVGStylable,
+                               SVGTransformable,
+                               SVGAnimatedPoints {
+};
+interface SVGPolygonElement : SVGElement,
+                              SVGTests,
+                              SVGLangSpace,
+                              SVGExternalResourcesRequired,
+                              SVGStylable,
+                              SVGTransformable,
+                              SVGAnimatedPoints {
+};

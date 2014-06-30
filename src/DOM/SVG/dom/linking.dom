@@ -1,0 +1,15 @@
+interface SVGAElement : SVGElement,
+                        SVGURIReference,
+                        SVGTests,
+                        SVGLangSpace,
+                        SVGExternalResourcesRequired,
+                        SVGStylable,
+                        SVGTransformable {
+  readonly attribute SVGAnimatedString target;
+};
+interface SVGViewElement : SVGElement,
+                           SVGExternalResourcesRequired,
+                           SVGFitToViewBox,
+                           SVGZoomAndPan {
+  readonly attribute SVGStringList viewTarget;
+};

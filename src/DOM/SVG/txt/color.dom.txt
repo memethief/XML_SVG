@@ -1,0 +1,14 @@
+where the <color-profile-description> has the form: The interface corresponds to the element.
+interface SVGColorProfileElement : SVGElement,
+                                   SVGURIReference,
+                                   SVGRenderingIntent {
+  attribute DOMString local;
+  attribute DOMString name;
+  attribute unsigned short renderingIntent;
+};
+interface SVGColorProfileRule : SVGCSSRule,
+                                SVGRenderingIntent {
+  attribute DOMString src setraises(DOMException);
+  attribute DOMString name setraises(DOMException);
+  attribute unsigned short renderingIntent setraises(DOMException);
+};

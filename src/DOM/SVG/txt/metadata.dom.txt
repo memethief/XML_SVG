@@ -1,0 +1,3 @@
+The interface corresponds to the element.
+interface SVGMetadataElement : SVGElement {
+};

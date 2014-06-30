@@ -1,0 +1,24 @@
+interface SVGFontElement : SVGElement,
+                           SVGExternalResourcesRequired,
+                           SVGStylable {
+};
+interface SVGGlyphElement : SVGElement,
+                            SVGStylable {
+};
+interface SVGMissingGlyphElement : SVGElement,
+                                   SVGStylable {
+};
+interface SVGHKernElement : SVGElement {
+};
+interface SVGVKernElement : SVGElement {
+};
+interface SVGFontFaceElement : SVGElement {
+};
+interface SVGFontFaceSrcElement : SVGElement {
+};
+interface SVGFontFaceUriElement : SVGElement {
+};
+interface SVGFontFaceFormatElement : SVGElement {
+};
+interface SVGFontFaceNameElement : SVGElement {
+};

@@ -1,0 +1,75 @@
+interface SVGTextContentElement : SVGElement,
+                                  SVGTests,
+                                  SVGLangSpace,
+                                  SVGExternalResourcesRequired,
+                                  SVGStylable {
+
+  // lengthAdjust Types
+  const unsigned short LENGTHADJUST_UNKNOWN = 0;
+  const unsigned short LENGTHADJUST_SPACING = 1;
+  const unsigned short LENGTHADJUST_SPACINGANDGLYPHS = 2;
+
+  readonly attribute SVGAnimatedLength textLength;
+  readonly attribute SVGAnimatedEnumeration lengthAdjust;
+
+  long getNumberOfChars();
+  float getComputedTextLength();
+  float getSubStringLength(in unsigned long charnum, in unsigned long nchars) raises(DOMException);
+  SVGPoint getStartPositionOfChar(in unsigned long charnum) raises(DOMException);
+  SVGPoint getEndPositionOfChar(in unsigned long charnum) raises(DOMException);
+  SVGRect getExtentOfChar(in unsigned long charnum) raises(DOMException);
+  float getRotationOfChar(in unsigned long charnum) raises(DOMException);
+  long getCharNumAtPosition(in SVGPoint point);
+  void selectSubString(in unsigned long charnum, in unsigned long nchars) raises(DOMException);
+};
+interface SVGTextPositioningElement : SVGTextContentElement {
+  readonly attribute SVGAnimatedLengthList x;
+  readonly attribute SVGAnimatedLengthList y;
+  readonly attribute SVGAnimatedLengthList dx;
+  readonly attribute SVGAnimatedLengthList dy;
+  readonly attribute SVGAnimatedNumberList rotate;
+};
+interface SVGTextElement : SVGTextPositioningElement,
+                           SVGTransformable {
+};
+interface SVGTSpanElement : SVGTextPositioningElement {
+};
+interface SVGTRefElement : SVGTextPositioningElement,
+                           SVGURIReference {
+};
+interface SVGTextPathElement : SVGTextContentElement,
+                               SVGURIReference {
+
+  // textPath Method Types
+  const unsigned short TEXTPATH_METHODTYPE_UNKNOWN = 0;
+  const unsigned short TEXTPATH_METHODTYPE_ALIGN = 1;
+  const unsigned short TEXTPATH_METHODTYPE_STRETCH = 2;
+
+  // textPath Spacing Types
+  const unsigned short TEXTPATH_SPACINGTYPE_UNKNOWN = 0;
+  const unsigned short TEXTPATH_SPACINGTYPE_AUTO = 1;
+  const unsigned short TEXTPATH_SPACINGTYPE_EXACT = 2;
+
+  readonly attribute SVGAnimatedLength startOffset;
+  readonly attribute SVGAnimatedEnumeration method;
+  readonly attribute SVGAnimatedEnumeration spacing;
+};
+interface SVGAltGlyphElement : SVGTextPositioningElement,
+                               SVGURIReference {
+  attribute DOMString glyphRef setraises(DOMException);
+  attribute DOMString format setraises(DOMException);
+};
+interface SVGAltGlyphDefElement : SVGElement {
+};
+interface SVGAltGlyphItemElement : SVGElement {
+};
+interface SVGGlyphRefElement : SVGElement,
+                               SVGURIReference,
+                               SVGStylable {
+  attribute DOMString glyphRef setraises(DOMException);
+  attribute DOMString format setraises(DOMException);
+  attribute float x setraises(DOMException);
+  attribute float y setraises(DOMException);
+  attribute float dx setraises(DOMException);
+  attribute float dy setraises(DOMException);
+};

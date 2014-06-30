@@ -1,0 +1,273 @@
+where: The interface corresponds to the element.
+interface SVGFilterElement : SVGElement,
+                             SVGURIReference,
+                             SVGLangSpace,
+                             SVGExternalResourcesRequired,
+                             SVGStylable,
+                             SVGUnitTypes {
+
+  readonly attribute SVGAnimatedEnumeration filterUnits;
+  readonly attribute SVGAnimatedEnumeration primitiveUnits;
+  readonly attribute SVGAnimatedLength x;
+  readonly attribute SVGAnimatedLength y;
+  readonly attribute SVGAnimatedLength width;
+  readonly attribute SVGAnimatedLength height;
+  readonly attribute SVGAnimatedInteger filterResX;
+  readonly attribute SVGAnimatedInteger filterResY;
+
+  void setFilterRes(in unsigned long filterResX, in unsigned long filterResY) raises(DOMException);
+};
+This interface defines the set of DOM attributes that are common across the filter primitive interfaces.
+interface SVGFilterPrimitiveStandardAttributes : SVGStylable {
+  readonly attribute SVGAnimatedLength x;
+  readonly attribute SVGAnimatedLength y;
+  readonly attribute SVGAnimatedLength width;
+  readonly attribute SVGAnimatedLength height;
+  readonly attribute SVGAnimatedString result;
+};
+The interface corresponds to the element.
+interface SVGFEBlendElement : SVGElement,
+                              SVGFilterPrimitiveStandardAttributes {
+
+  // Blend Mode Types
+  const unsigned short SVG_FEBLEND_MODE_UNKNOWN = 0;
+  const unsigned short SVG_FEBLEND_MODE_NORMAL = 1;
+  const unsigned short SVG_FEBLEND_MODE_MULTIPLY = 2;
+  const unsigned short SVG_FEBLEND_MODE_SCREEN = 3;
+  const unsigned short SVG_FEBLEND_MODE_DARKEN = 4;
+  const unsigned short SVG_FEBLEND_MODE_LIGHTEN = 5;
+
+  readonly attribute SVGAnimatedString in1;
+  readonly attribute SVGAnimatedString in2;
+  readonly attribute SVGAnimatedEnumeration mode;
+};
+The interface corresponds to the element.
+interface SVGFEColorMatrixElement : SVGElement,
+                                    SVGFilterPrimitiveStandardAttributes {
+
+  // Color Matrix Types
+  const unsigned short SVG_FECOLORMATRIX_TYPE_UNKNOWN = 0;
+  const unsigned short SVG_FECOLORMATRIX_TYPE_MATRIX = 1;
+  const unsigned short SVG_FECOLORMATRIX_TYPE_SATURATE = 2;
+  const unsigned short SVG_FECOLORMATRIX_TYPE_HUEROTATE = 3;
+  const unsigned short SVG_FECOLORMATRIX_TYPE_LUMINANCETOALPHA = 4;
+
+  readonly attribute SVGAnimatedString in1;
+  readonly attribute SVGAnimatedEnumeration type;
+  readonly attribute SVGAnimatedNumberList values;
+};
+The interface corresponds to the element.
+interface SVGFEComponentTransferElement : SVGElement,
+                                          SVGFilterPrimitiveStandardAttributes {
+  readonly attribute SVGAnimatedString in1;
+};
+This interface defines a base interface used by the component transfer function interfaces.
+interface SVGComponentTransferFunctionElement : SVGElement {
+
+  // Component Transfer Types
+  const unsigned short SVG_FECOMPONENTTRANSFER_TYPE_UNKNOWN = 0;
+  const unsigned short SVG_FECOMPONENTTRANSFER_TYPE_IDENTITY = 1;
+  const unsigned short SVG_FECOMPONENTTRANSFER_TYPE_TABLE = 2;
+  const unsigned short SVG_FECOMPONENTTRANSFER_TYPE_DISCRETE = 3;
+  const unsigned short SVG_FECOMPONENTTRANSFER_TYPE_LINEAR = 4;
+  const unsigned short SVG_FECOMPONENTTRANSFER_TYPE_GAMMA = 5;
+
+  readonly attribute SVGAnimatedEnumeration type;
+  readonly attribute SVGAnimatedNumberList tableValues;
+  readonly attribute SVGAnimatedNumber slope;
+  readonly attribute SVGAnimatedNumber intercept;
+  readonly attribute SVGAnimatedNumber amplitude;
+  readonly attribute SVGAnimatedNumber exponent;
+  readonly attribute SVGAnimatedNumber offset;
+};
+The interface corresponds to the element.
+interface SVGFEFuncRElement : SVGComponentTransferFunctionElement {
+};
+The interface corresponds to the element.
+interface SVGFEFuncGElement : SVGComponentTransferFunctionElement {
+};
+The interface corresponds to the element.
+interface SVGFEFuncBElement : SVGComponentTransferFunctionElement {
+};
+The interface corresponds to the element.
+interface SVGFEFuncAElement : SVGComponentTransferFunctionElement {
+};
+The interface corresponds to the element.
+interface SVGFECompositeElement : SVGElement,
+                                  SVGFilterPrimitiveStandardAttributes {
+
+  // Composite Operators
+  const unsigned short SVG_FECOMPOSITE_OPERATOR_UNKNOWN = 0;
+  const unsigned short SVG_FECOMPOSITE_OPERATOR_OVER = 1;
+  const unsigned short SVG_FECOMPOSITE_OPERATOR_IN = 2;
+  const unsigned short SVG_FECOMPOSITE_OPERATOR_OUT = 3;
+  const unsigned short SVG_FECOMPOSITE_OPERATOR_ATOP = 4;
+  const unsigned short SVG_FECOMPOSITE_OPERATOR_XOR = 5;
+  const unsigned short SVG_FECOMPOSITE_OPERATOR_ARITHMETIC = 6;
+
+  readonly attribute SVGAnimatedString in1;
+  readonly attribute SVGAnimatedString in2;
+  readonly attribute SVGAnimatedEnumeration operator;
+  readonly attribute SVGAnimatedNumber k1;
+  readonly attribute SVGAnimatedNumber k2;
+  readonly attribute SVGAnimatedNumber k3;
+  readonly attribute SVGAnimatedNumber k4;
+};
+The interface corresponds to the element.
+interface SVGFEConvolveMatrixElement : SVGElement,
+                                       SVGFilterPrimitiveStandardAttributes {
+
+  // Edge Mode Values
+  const unsigned short SVG_EDGEMODE_UNKNOWN = 0;
+  const unsigned short SVG_EDGEMODE_DUPLICATE = 1;
+  const unsigned short SVG_EDGEMODE_WRAP = 2;
+  const unsigned short SVG_EDGEMODE_NONE = 3;
+
+  readonly attribute SVGAnimatedString in1;
+  readonly attribute SVGAnimatedInteger orderX;
+  readonly attribute SVGAnimatedInteger orderY;
+  readonly attribute SVGAnimatedNumberList kernelMatrix;
+  readonly attribute SVGAnimatedNumber divisor;
+  readonly attribute SVGAnimatedNumber bias;
+  readonly attribute SVGAnimatedInteger targetX;
+  readonly attribute SVGAnimatedInteger targetY;
+  readonly attribute SVGAnimatedEnumeration edgeMode;
+  readonly attribute SVGAnimatedNumber kernelUnitLengthX;
+  readonly attribute SVGAnimatedNumber kernelUnitLengthY;
+  readonly attribute SVGAnimatedBoolean preserveAlpha;
+};
+The interface corresponds to the element.
+interface SVGFEDiffuseLightingElement : SVGElement,
+                                        SVGFilterPrimitiveStandardAttributes {
+  readonly attribute SVGAnimatedString in1;
+  readonly attribute SVGAnimatedNumber surfaceScale;
+  readonly attribute SVGAnimatedNumber diffuseConstant;
+  readonly attribute SVGAnimatedNumber kernelUnitLengthX;
+  readonly attribute SVGAnimatedNumber kernelUnitLengthY;
+};
+The interface corresponds to the element.
+interface SVGFEDistantLightElement : SVGElement {
+  readonly attribute SVGAnimatedNumber azimuth;
+  readonly attribute SVGAnimatedNumber elevation;
+};
+The interface corresponds to the element.
+interface SVGFEPointLightElement : SVGElement {
+  readonly attribute SVGAnimatedNumber x;
+  readonly attribute SVGAnimatedNumber y;
+  readonly attribute SVGAnimatedNumber z;
+};
+The interface corresponds to the element.
+interface SVGFESpotLightElement : SVGElement {
+  readonly attribute SVGAnimatedNumber x;
+  readonly attribute SVGAnimatedNumber y;
+  readonly attribute SVGAnimatedNumber z;
+  readonly attribute SVGAnimatedNumber pointsAtX;
+  readonly attribute SVGAnimatedNumber pointsAtY;
+  readonly attribute SVGAnimatedNumber pointsAtZ;
+  readonly attribute SVGAnimatedNumber specularExponent;
+  readonly attribute SVGAnimatedNumber limitingConeAngle;
+};
+The interface corresponds to the element.
+interface SVGFEDisplacementMapElement : SVGElement,
+                                        SVGFilterPrimitiveStandardAttributes {
+
+  // Channel Selectors
+  const unsigned short SVG_CHANNEL_UNKNOWN = 0;
+  const unsigned short SVG_CHANNEL_R = 1;
+  const unsigned short SVG_CHANNEL_G = 2;
+  const unsigned short SVG_CHANNEL_B = 3;
+  const unsigned short SVG_CHANNEL_A = 4;
+
+  readonly attribute SVGAnimatedString in1;
+  readonly attribute SVGAnimatedString in2;
+  readonly attribute SVGAnimatedNumber scale;
+  readonly attribute SVGAnimatedEnumeration xChannelSelector;
+  readonly attribute SVGAnimatedEnumeration yChannelSelector;
+};
+The interface corresponds to the element.
+interface SVGFEFloodElement : SVGElement,
+                              SVGFilterPrimitiveStandardAttributes {
+};
+The interface corresponds to the element.
+interface SVGFEGaussianBlurElement : SVGElement,
+                                     SVGFilterPrimitiveStandardAttributes {
+
+  readonly attribute SVGAnimatedString in1;
+  readonly attribute SVGAnimatedNumber stdDeviationX;
+  readonly attribute SVGAnimatedNumber stdDeviationY;
+
+  void setStdDeviation(in float stdDeviationX, in float stdDeviationY) raises(DOMException);
+};
+The interface corresponds to the element.
+interface SVGFEImageElement : SVGElement,
+                              SVGURIReference,
+                              SVGLangSpace,
+                              SVGExternalResourcesRequired,
+                              SVGFilterPrimitiveStandardAttributes {
+  readonly attribute SVGAnimatedPreserveAspectRatio preserveAspectRatio;
+};
+The interface corresponds to the element.
+interface SVGFEMergeElement : SVGElement,
+                              SVGFilterPrimitiveStandardAttributes {
+};
+The interface corresponds to the element.
+interface SVGFEMergeNodeElement : SVGElement {
+  readonly attribute SVGAnimatedString in1;
+};
+The interface corresponds to the element.
+interface SVGFEMorphologyElement : SVGElement,
+                                   SVGFilterPrimitiveStandardAttributes {
+
+  // Morphology Operators
+  const unsigned short SVG_MORPHOLOGY_OPERATOR_UNKNOWN = 0;
+  const unsigned short SVG_MORPHOLOGY_OPERATOR_ERODE = 1;
+  const unsigned short SVG_MORPHOLOGY_OPERATOR_DILATE = 2;
+
+  readonly attribute SVGAnimatedString in1;
+  readonly attribute SVGAnimatedEnumeration operator;
+  readonly attribute SVGAnimatedNumber radiusX;
+  readonly attribute SVGAnimatedNumber radiusY;
+};
+The interface corresponds to the element.
+interface SVGFEOffsetElement : SVGElement,
+                               SVGFilterPrimitiveStandardAttributes {
+  readonly attribute SVGAnimatedString in1;
+  readonly attribute SVGAnimatedNumber dx;
+  readonly attribute SVGAnimatedNumber dy;
+};
+The interface corresponds to the element.
+interface SVGFESpecularLightingElement : SVGElement,
+                                         SVGFilterPrimitiveStandardAttributes {
+  readonly attribute SVGAnimatedString in1;
+  readonly attribute SVGAnimatedNumber surfaceScale;
+  readonly attribute SVGAnimatedNumber specularConstant;
+  readonly attribute SVGAnimatedNumber specularExponent;
+  readonly attribute SVGAnimatedNumber kernelUnitLengthX;
+  readonly attribute SVGAnimatedNumber kernelUnitLengthY;
+};
+The interface corresponds to the element.
+interface SVGFETileElement : SVGElement,
+                             SVGFilterPrimitiveStandardAttributes {
+  readonly attribute SVGAnimatedString in1;
+};
+The interface corresponds to the element.
+interface SVGFETurbulenceElement : SVGElement,
+                                   SVGFilterPrimitiveStandardAttributes {
+
+  // Turbulence Types
+  const unsigned short SVG_TURBULENCE_TYPE_UNKNOWN = 0;
+  const unsigned short SVG_TURBULENCE_TYPE_FRACTALNOISE = 1;
+  const unsigned short SVG_TURBULENCE_TYPE_TURBULENCE = 2;
+
+  // Stitch Options
+  const unsigned short SVG_STITCHTYPE_UNKNOWN = 0;
+  const unsigned short SVG_STITCHTYPE_STITCH = 1;
+  const unsigned short SVG_STITCHTYPE_NOSTITCH = 2;
+
+  readonly attribute SVGAnimatedNumber baseFrequencyX;
+  readonly attribute SVGAnimatedNumber baseFrequencyY;
+  readonly attribute SVGAnimatedInteger numOctaves;
+  readonly attribute SVGAnimatedNumber seed;
+  readonly attribute SVGAnimatedEnumeration stitchTiles;
+  readonly attribute SVGAnimatedEnumeration type;
+};

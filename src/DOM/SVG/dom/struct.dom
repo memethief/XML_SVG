@@ -1,0 +1,141 @@
+interface SVGDocument : Document,
+                        DocumentEvent {
+  readonly attribute DOMString title;
+  readonly attribute DOMString referrer;
+  readonly attribute DOMString domain;
+  readonly attribute DOMString URL;
+  readonly attribute SVGSVGElement rootElement;
+};
+interface SVGSVGElement : SVGElement,
+                          SVGTests,
+                          SVGLangSpace,
+                          SVGExternalResourcesRequired,
+                          SVGStylable,
+                          SVGLocatable,
+                          SVGFitToViewBox,
+                          SVGZoomAndPan,
+                          DocumentEvent,
+                          ViewCSS,
+                          DocumentCSS {
+
+  readonly attribute SVGAnimatedLength x;
+  readonly attribute SVGAnimatedLength y;
+  readonly attribute SVGAnimatedLength width;
+  readonly attribute SVGAnimatedLength height;
+           attribute DOMString contentScriptType setraises(DOMException);
+           attribute DOMString contentStyleType setraises(DOMException);
+  readonly attribute SVGRect viewport;
+  readonly attribute float pixelUnitToMillimeterX;
+  readonly attribute float pixelUnitToMillimeterY;
+  readonly attribute float screenPixelToMillimeterX;
+  readonly attribute float screenPixelToMillimeterY;
+  readonly attribute boolean useCurrentView;
+  readonly attribute SVGViewSpec currentView;
+           attribute float currentScale;
+  readonly attribute SVGPoint currentTranslate;
+
+  unsigned long suspendRedraw(in unsigned long maxWaitMilliseconds);
+  void unsuspendRedraw(in unsigned long suspendHandleID);
+  void unsuspendRedrawAll();
+  void forceRedraw();
+  void pauseAnimations();
+  void unpauseAnimations();
+  boolean animationsPaused();
+  float getCurrentTime();
+  void setCurrentTime(in float seconds);
+  NodeList getIntersectionList(in SVGRect rect, in SVGElement referenceElement);
+  NodeList getEnclosureList(in SVGRect rect, in SVGElement referenceElement);
+  boolean checkIntersection(in SVGElement element, in SVGRect rect);
+  boolean checkEnclosure(in SVGElement element, in SVGRect rect);
+  void deselectAll();
+  SVGNumber createSVGNumber();
+  SVGLength createSVGLength();
+  SVGAngle createSVGAngle();
+  SVGPoint createSVGPoint();
+  SVGMatrix createSVGMatrix();
+  SVGRect createSVGRect();
+  SVGTransform createSVGTransform();
+  SVGTransform createSVGTransformFromMatrix(in SVGMatrix matrix);
+  Element getElementById(in DOMString elementId);
+};
+interface SVGGElement : SVGElement,
+                        SVGTests,
+                        SVGLangSpace,
+                        SVGExternalResourcesRequired,
+                        SVGStylable,
+                        SVGTransformable {
+};
+interface SVGDefsElement : SVGElement,
+                           SVGTests,
+                           SVGLangSpace,
+                           SVGExternalResourcesRequired,
+                           SVGStylable,
+                           SVGTransformable {
+};
+interface SVGDescElement : SVGElement,
+                           SVGLangSpace,
+                           SVGStylable {
+};
+interface SVGTitleElement : SVGElement,
+                            SVGLangSpace,
+                            SVGStylable {
+};
+interface SVGSymbolElement : SVGElement,
+                             SVGLangSpace,
+                             SVGExternalResourcesRequired,
+                             SVGStylable,
+                             SVGFitToViewBox {
+};
+interface SVGUseElement : SVGElement,
+                          SVGURIReference,
+                          SVGTests,
+                          SVGLangSpace,
+                          SVGExternalResourcesRequired,
+                          SVGStylable,
+                          SVGTransformable {
+  readonly attribute SVGAnimatedLength x;
+  readonly attribute SVGAnimatedLength y;
+  readonly attribute SVGAnimatedLength width;
+  readonly attribute SVGAnimatedLength height;
+  readonly attribute SVGElementInstance instanceRoot;
+  readonly attribute SVGElementInstance animatedInstanceRoot;
+};
+interface SVGElementInstance : EventTarget {
+  readonly attribute SVGElement correspondingElement;
+  readonly attribute SVGUseElement correspondingUseElement;
+  readonly attribute SVGElementInstance parentNode;
+  readonly attribute SVGElementInstanceList childNodes;
+  readonly attribute SVGElementInstance firstChild;
+  readonly attribute SVGElementInstance lastChild;
+  readonly attribute SVGElementInstance previousSibling;
+  readonly attribute SVGElementInstance nextSibling;
+};
+interface SVGElementInstanceList {
+
+  readonly attribute unsigned long length;
+
+  SVGElementInstance item(in unsigned long index);
+};
+interface SVGImageElement : SVGElement,
+                            SVGURIReference,
+                            SVGTests,
+                            SVGLangSpace,
+                            SVGExternalResourcesRequired,
+                            SVGStylable,
+                            SVGTransformable {
+  readonly attribute SVGAnimatedLength x;
+  readonly attribute SVGAnimatedLength y;
+  readonly attribute SVGAnimatedLength width;
+  readonly attribute SVGAnimatedLength height;
+  readonly attribute SVGAnimatedPreserveAspectRatio preserveAspectRatio;
+};
+interface SVGSwitchElement : SVGElement,
+                             SVGTests,
+                             SVGLangSpace,
+                             SVGExternalResourcesRequired,
+                             SVGStylable,
+                             SVGTransformable {
+};
+interface GetSVGDocument {
+  SVGDocument getSVGDocument();
+};
