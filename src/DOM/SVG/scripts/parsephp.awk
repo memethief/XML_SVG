@@ -9,6 +9,8 @@ BEGIN {
 	C3 = " */"
 	I1 = "\t"
 	I2 = I1 I1
+# customization:
+	FORCE_CLASS = 0
 }
 
 # beginning of the DOM definition
@@ -189,8 +191,13 @@ function parse_class_definition (    interfaces)
 {
 	delete class
 	class["name"] = $2
-	class["type"] = "interface" 
-	class["inherit"] = "extends"
+	if (FORCE_CLASS == 1) {
+		class["type"] = "class" 
+		class["inherit"] = "extends"
+	} else {
+		class["type"] = "interface" 
+		class["inherit"] = "extends"
+	}
 	interfaces = 0
 
 	if (NF > 3) {
