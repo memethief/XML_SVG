@@ -89,7 +89,7 @@ function print_file_header(outfile)
 	print C2 "@package PEAR2_XML_SVG"                              > outfile
 	print C2 "@license http://www.fsf.org/copyleft/lgpl.html"      > outfile
 	print C3                                                       > outfile
-	print "namespace PEAR2\\XML\\SVG;"                             > outfile
+	print "namespace PEAR2\\XML\\SVG\\DOM;"                        > outfile
 	print ""                                                       > outfile
 }
 

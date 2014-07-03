@@ -2,7 +2,7 @@
 
 DOMSECTIONS = animate color coords extend filters fonts interact linking \
 							masking metadata painting paths pservers script shapes struct \
-							styling text types
+							styling text types svgdom
 
 default: all
 
@@ -25,18 +25,18 @@ $(DIRS) :
 $(DOMDIR)/%.dom : $(HTMLDIR)/%.html
 	sed -nrf $(SCRIPTDIR)/htmlmung.sed < $< > $@
 
-$(HTMLDIR)/%.html :
+$(HTMLDIR)/%.html : $(HTMLDIR)
 	wget http://www.w3.org/TR/SVG11/$*.html -O $@
 
 # Do some pattern replacement on the DOM file:
-$(DOMDIR)/%.replaced : $(DOMDIR)/%.dom $(SCRIPTDIR)/parsephp.sed Makefile
+$(DOMDIR)/%.replaced : $(DOMDIR)/%.dom $(SCRIPTDIR)/parsephp.sed | $(DOMDIR)
 	sed -rf $(word 2, $^) < $< > $@
 
-$(PHPDIR)/%.php : $(TMPLDIR)/%.tmpl $(DOMDIR)/%.replaced $(SCRIPTDIR)/parsephp.awk Makefile
+$(PHPDIR)/%.php : $(TMPLDIR)/%.tmpl $(DOMDIR)/%.replaced $(SCRIPTDIR)/parsephp.awk | $(PHPDIR)
 	cp $(word 1,$^) $@
 	awk -f $(word 3,$^) < $(word 2,$^) >> $@
 
-$(TMPLDIR)/interfaces.tmpl : $(TMPLDIR) Makefile
+$(TMPLDIR)/interfaces.tmpl : Makefile | $(TMPLDIR)
 	{ \
 		echo "<?php " ; \
 		echo "/** " ; \
@@ -46,7 +46,7 @@ $(TMPLDIR)/interfaces.tmpl : $(TMPLDIR) Makefile
 		echo ; \
 	} > $@
 
-$(TMPLDIR)/%.tmpl : $(TMPLDIR) Makefile
+$(TMPLDIR)/%.tmpl : Makefile | $(TMPLDIR)
 	{ \
 		echo "<?php " ; \
 		echo "/** " ; \
