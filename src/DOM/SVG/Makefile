@@ -25,7 +25,7 @@ $(DIRS) :
 $(DOMDIR)/%.dom : $(HTMLDIR)/%.html
 	sed -nrf $(SCRIPTDIR)/htmlmung.sed < $< > $@
 
-$(HTMLDIR)/%.html : $(HTMLDIR)
+$(HTMLDIR)/%.html : | $(HTMLDIR)
 	wget http://www.w3.org/TR/SVG11/$*.html -O $@
 
 # Do some pattern replacement on the DOM file:
@@ -55,14 +55,14 @@ $(TMPLDIR)/%.tmpl : Makefile | $(TMPLDIR)
 		echo ; \
 	} > $@
 
-interfaces.php : $(TMPLDIR)/interfaces.tmpl $(PHPDEFINITIONS)
+DOM.php : $(TMPLDIR)/interfaces.tmpl $(PHPDEFINITIONS)
 	cp $< $@
 	for file in $(wordlist 2,$(words $^),$^) ; \
 		do echo "require_once('$$file');" ; \
 	done >> $@
 
 all-dom : $(DOMDEFINITIONS)
-all-php : interfaces.php
+all-php : DOM.php
 all : all-php
 
 clean: clean-php clean-tmp
@@ -73,4 +73,9 @@ clean-php:
 clean-tmp:
 	- rm $(DOMDIR)/*.replaced
 
+DEPLOY_DIR = ../../PEAR2/XML/SVG
+install : DOM.php
+	cp $< $(DEPLOY_DIR)/
+	- mkdir $(DEPLOY_DIR)/DOM
+	cp $(PHPDIR)/* $(DEPLOY_DIR)/DOM/
 
