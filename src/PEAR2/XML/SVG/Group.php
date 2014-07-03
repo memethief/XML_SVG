@@ -1,21 +1,26 @@
 <?php
 /**
- * Package for building SVG graphics.
+ * W3C DOM-compliant SVG package
  *
- * Copyright 2002-2007 The Horde Project (http://www.horde.org/)
+ * DOM compliance is currently in progress. For details on the SVG DOM see:
+ * @link{http://www.w3.org/TR/SVG/svgdom.html}
+ * The definition for this interface is at:
+ * @link{http://www.w3.org/TR/SVG/types.html#InterfaceSVGElement}
  *
- * @author  Chuck Hagenbuch <chuck@horde.org>
- * @package XML_SVG
+ * @category XML
+ * @author  David Leaman <david@davidleaman.ca>
+ * @package PEAR2_XML_SVG
  * @license http://www.fsf.org/copyleft/lgpl.html
  */
-require_once 'XML/SVG/Element.php';
+namespace PEAR2\XML\SVG;
+use PEAR2\XML\SVG\DOM as SVGDOM;
 
 /**
- * XML_SVG_Group
+ * The Group class corresponds to the ‘g’ element.
  *
  * @package XML_SVG
  */
-class XML_SVG_Group extends XML_SVG_Element 
+class Group extends Element implements SVGDOM\SVGGroupElement 
 {
 	protected static $tag = "g";
 	private static $extra_attributes = array(

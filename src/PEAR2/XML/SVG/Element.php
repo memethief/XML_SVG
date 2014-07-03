@@ -1,5 +1,4 @@
 <?php
-
 /**
  * W3C DOM-compliant SVG package
  *
@@ -14,7 +13,7 @@
  * @license http://www.fsf.org/copyleft/lgpl.html
  */
 namespace PEAR2\XML\SVG;
-use PEAR2\XML\SVG\DOM;
+use PEAR2\XML\SVG\DOM as SVGDOM;
 
 /**
  * XML_SVG_Element
@@ -29,7 +28,7 @@ use PEAR2\XML\SVG\DOM;
  * @property-read XML_SVG_SVGElement ownerSVGElement The nearest ancestor ‘svg’ element. Null if the given element is the outermost svg element.
  * @property-read SVGElement viewportElement;
  */
-class Element extends \DOMElement implements DOM\SVGElement {
+class Element extends \DOMElement implements SVGDOM\SVGElement {
 	protected static $tag = null;
 	public static $ATTR_CONDITIONAL_PROCESSING = array (
 			'requiredFeatures',

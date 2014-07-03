@@ -17,7 +17,7 @@ namespace PEAR2\XML\SVG\DOM;
  * @extends Element
  */
 interface SVGElement
-	extends Element
+	extends \DOMElement
 {
 	/**
 	 * @var DOMString id
