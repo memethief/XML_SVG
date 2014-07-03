@@ -1,0 +1,71 @@
+The interface corresponds to the element.
+interface SVGRectElement : SVGElement,
+                           SVGTests,
+                           SVGLangSpace,
+                           SVGExternalResourcesRequired,
+                           SVGStylable,
+                           SVGTransformable {
+  readonly attribute SVGAnimatedLength x;
+  readonly attribute SVGAnimatedLength y;
+  readonly attribute SVGAnimatedLength width;
+  readonly attribute SVGAnimatedLength height;
+  readonly attribute SVGAnimatedLength rx;
+  readonly attribute SVGAnimatedLength ry;
+};
+The interface corresponds to the element.
+interface SVGCircleElement : SVGElement,
+                             SVGTests,
+                             SVGLangSpace,
+                             SVGExternalResourcesRequired,
+                             SVGStylable,
+                             SVGTransformable {
+  readonly attribute SVGAnimatedLength cx;
+  readonly attribute SVGAnimatedLength cy;
+  readonly attribute SVGAnimatedLength r;
+};
+The interface corresponds to the element.
+interface SVGEllipseElement : SVGElement,
+                              SVGTests,
+                              SVGLangSpace,
+                              SVGExternalResourcesRequired,
+                              SVGStylable,
+                              SVGTransformable {
+  readonly attribute SVGAnimatedLength cx;
+  readonly attribute SVGAnimatedLength cy;
+  readonly attribute SVGAnimatedLength rx;
+  readonly attribute SVGAnimatedLength ry;
+};
+The interface corresponds to the element.
+interface SVGLineElement : SVGElement,
+                           SVGTests,
+                           SVGLangSpace,
+                           SVGExternalResourcesRequired,
+                           SVGStylable,
+                           SVGTransformable {
+  readonly attribute SVGAnimatedLength x1;
+  readonly attribute SVGAnimatedLength y1;
+  readonly attribute SVGAnimatedLength x2;
+  readonly attribute SVGAnimatedLength y2;
+};
+interface SVGAnimatedPoints {
+  readonly attribute SVGPointList points;
+  readonly attribute SVGPointList animatedPoints;
+};
+The interface corresponds to the element.
+interface SVGPolylineElement : SVGElement,
+                               SVGTests,
+                               SVGLangSpace,
+                               SVGExternalResourcesRequired,
+                               SVGStylable,
+                               SVGTransformable,
+                               SVGAnimatedPoints {
+};
+The interface corresponds to the element.
+interface SVGPolygonElement : SVGElement,
+                              SVGTests,
+                              SVGLangSpace,
+                              SVGExternalResourcesRequired,
+                              SVGStylable,
+                              SVGTransformable,
+                              SVGAnimatedPoints {
+};

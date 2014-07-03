@@ -1,0 +1,40 @@
+interface ElementTimeControl {
+  void beginElement();
+  void beginElementAt(in float offset);
+  void endElement();
+  void endElementAt(in float offset);
+};
+interface TimeEvent : Event {
+
+  readonly attribute AbstractView view;
+  readonly attribute long detail;
+
+  void initTimeEvent(in DOMString typeArg, in AbstractView viewArg, in long detailArg);
+};
+interface SVGAnimationElement : SVGElement,
+                                SVGTests,
+                                SVGExternalResourcesRequired,
+                                ElementTimeControl {
+
+  readonly attribute SVGElement targetElement;
+
+  float getStartTime() raises(DOMException);
+  float getCurrentTime();
+  float getSimpleDuration() raises(DOMException);
+};
+interface SVGAnimateElement : SVGAnimationElement,
+                              SVGStylable {
+};
+interface SVGSetElement : SVGAnimationElement {
+};
+interface SVGAnimateMotionElement : SVGAnimationElement {
+};
+interface SVGMPathElement : SVGElement,
+                            SVGURIReference,
+                            SVGExternalResourcesRequired {
+};
+interface SVGAnimateColorElement : SVGAnimationElement,
+                                   SVGStylable {
+};
+interface SVGAnimateTransformElement : SVGAnimationElement {
+};

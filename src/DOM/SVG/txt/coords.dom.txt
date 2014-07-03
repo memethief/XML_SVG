@@ -1,0 +1,112 @@
+To achieve the effect of the example on the right, with viewport dimensions of 150 by 200 pixels, the user agent needs to automatically insert a transformation which scales X by 0.1 and Y by 0.2. The effect is equivalent to having a viewport of size 150px by 200px and the following supplemental transformation in the document, as follows:
+interface SVGPoint {
+
+  attribute float x setraises(DOMException);
+  attribute float y setraises(DOMException);
+
+  SVGPoint matrixTransform(in SVGMatrix matrix);
+};
+interface SVGPointList {
+
+  readonly attribute unsigned long numberOfItems;
+
+  void clear() raises(DOMException);
+  SVGPoint initialize(in SVGPoint newItem) raises(DOMException);
+  SVGPoint getItem(in unsigned long index) raises(DOMException);
+  SVGPoint insertItemBefore(in SVGPoint newItem, in unsigned long index) raises(DOMException);
+  SVGPoint replaceItem(in SVGPoint newItem, in unsigned long index) raises(DOMException);
+  SVGPoint removeItem(in unsigned long index) raises(DOMException);
+  SVGPoint appendItem(in SVGPoint newItem) raises(DOMException);
+};
+interface SVGMatrix {
+
+  attribute float a setraises(DOMException);
+  attribute float b setraises(DOMException);
+  attribute float c setraises(DOMException);
+  attribute float d setraises(DOMException);
+  attribute float e setraises(DOMException);
+  attribute float f setraises(DOMException);
+
+  SVGMatrix multiply(in SVGMatrix secondMatrix);
+  SVGMatrix inverse() raises(SVGException);
+  SVGMatrix translate(in float x, in float y);
+  SVGMatrix scale(in float scaleFactor);
+  SVGMatrix scaleNonUniform(in float scaleFactorX, in float scaleFactorY);
+  SVGMatrix rotate(in float angle);
+  SVGMatrix rotateFromVector(in float x, in float y) raises(SVGException);
+  SVGMatrix flipX();
+  SVGMatrix flipY();
+  SVGMatrix skewX(in float angle);
+  SVGMatrix skewY(in float angle);
+};
+is the interface for one of the component transformations within an ; thus, an object corresponds to a single component (e.g., or ) within a attribute specification.
+interface SVGTransform {
+
+  // Transform Types
+  const unsigned short SVG_TRANSFORM_UNKNOWN = 0;
+  const unsigned short SVG_TRANSFORM_MATRIX = 1;
+  const unsigned short SVG_TRANSFORM_TRANSLATE = 2;
+  const unsigned short SVG_TRANSFORM_SCALE = 3;
+  const unsigned short SVG_TRANSFORM_ROTATE = 4;
+  const unsigned short SVG_TRANSFORM_SKEWX = 5;
+  const unsigned short SVG_TRANSFORM_SKEWY = 6;
+
+  readonly attribute unsigned short type;
+  readonly attribute SVGMatrix matrix;
+  readonly attribute float angle;
+
+  void setMatrix(in SVGMatrix matrix) raises(DOMException);
+  void setTranslate(in float tx, in float ty) raises(DOMException);
+  void setScale(in float sx, in float sy) raises(DOMException);
+  void setRotate(in float angle, in float cx, in float cy) raises(DOMException);
+  void setSkewX(in float angle) raises(DOMException);
+  void setSkewY(in float angle) raises(DOMException);
+};
+interface SVGTransformList {
+
+  readonly attribute unsigned long numberOfItems;
+
+  void clear() raises(DOMException);
+  SVGTransform initialize(in SVGTransform newItem) raises(DOMException);
+  SVGTransform getItem(in unsigned long index) raises(DOMException);
+  SVGTransform insertItemBefore(in SVGTransform newItem, in unsigned long index) raises(DOMException);
+  SVGTransform replaceItem(in SVGTransform newItem, in unsigned long index) raises(DOMException);
+  SVGTransform removeItem(in unsigned long index) raises(DOMException);
+  SVGTransform appendItem(in SVGTransform newItem) raises(DOMException);
+  SVGTransform createSVGTransformFromMatrix(in SVGMatrix matrix);
+  SVGTransform consolidate() raises(DOMException);
+};
+Used for the various attributes which specify a set of transformations, such as the attribute which is available for many of SVG's elements, and which can be animated.
+interface SVGAnimatedTransformList {
+  readonly attribute SVGTransformList baseVal;
+  readonly attribute SVGTransformList animVal;
+};
+The interface corresponds to the attribute, which is available for some of SVG's elements.
+interface SVGPreserveAspectRatio {
+
+  // Alignment Types
+  const unsigned short SVG_PRESERVEASPECTRATIO_UNKNOWN = 0;
+  const unsigned short SVG_PRESERVEASPECTRATIO_NONE = 1;
+  const unsigned short SVG_PRESERVEASPECTRATIO_XMINYMIN = 2;
+  const unsigned short SVG_PRESERVEASPECTRATIO_XMIDYMIN = 3;
+  const unsigned short SVG_PRESERVEASPECTRATIO_XMAXYMIN = 4;
+  const unsigned short SVG_PRESERVEASPECTRATIO_XMINYMID = 5;
+  const unsigned short SVG_PRESERVEASPECTRATIO_XMIDYMID = 6;
+  const unsigned short SVG_PRESERVEASPECTRATIO_XMAXYMID = 7;
+  const unsigned short SVG_PRESERVEASPECTRATIO_XMINYMAX = 8;
+  const unsigned short SVG_PRESERVEASPECTRATIO_XMIDYMAX = 9;
+  const unsigned short SVG_PRESERVEASPECTRATIO_XMAXYMAX = 10;
+
+  // Meet-or-slice Types
+  const unsigned short SVG_MEETORSLICE_UNKNOWN = 0;
+  const unsigned short SVG_MEETORSLICE_MEET = 1;
+  const unsigned short SVG_MEETORSLICE_SLICE = 2;
+
+  attribute unsigned short align setraises(DOMException);
+  attribute unsigned short meetOrSlice setraises(DOMException);
+};
+Used for attributes of type which can be animated.
+interface SVGAnimatedPreserveAspectRatio {
+  readonly attribute SVGPreserveAspectRatio baseVal;
+  readonly attribute SVGPreserveAspectRatio animVal;
+};

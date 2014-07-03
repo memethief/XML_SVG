@@ -1,0 +1,47 @@
+interface SVGPaint : SVGColor {
+
+  // Paint Types
+  const unsigned short SVG_PAINTTYPE_UNKNOWN = 0;
+  const unsigned short SVG_PAINTTYPE_RGBCOLOR = 1;
+  const unsigned short SVG_PAINTTYPE_RGBCOLOR_ICCCOLOR = 2;
+  const unsigned short SVG_PAINTTYPE_NONE = 101;
+  const unsigned short SVG_PAINTTYPE_CURRENTCOLOR = 102;
+  const unsigned short SVG_PAINTTYPE_URI_NONE = 103;
+  const unsigned short SVG_PAINTTYPE_URI_CURRENTCOLOR = 104;
+  const unsigned short SVG_PAINTTYPE_URI_RGBCOLOR = 105;
+  const unsigned short SVG_PAINTTYPE_URI_RGBCOLOR_ICCCOLOR = 106;
+  const unsigned short SVG_PAINTTYPE_URI = 107;
+
+  readonly attribute unsigned short paintType;
+  readonly attribute DOMString uri;
+
+  void setUri(in DOMString uri);
+  void setPaint(in unsigned short paintType, in DOMString uri, in DOMString rgbColor, in DOMString iccColor) raises(SVGException);
+};
+interface SVGMarkerElement : SVGElement,
+                             SVGLangSpace,
+                             SVGExternalResourcesRequired,
+                             SVGStylable,
+                             SVGFitToViewBox {
+
+  // Marker Unit Types
+  const unsigned short SVG_MARKERUNITS_UNKNOWN = 0;
+  const unsigned short SVG_MARKERUNITS_USERSPACEONUSE = 1;
+  const unsigned short SVG_MARKERUNITS_STROKEWIDTH = 2;
+
+  // Marker Orientation Types
+  const unsigned short SVG_MARKER_ORIENT_UNKNOWN = 0;
+  const unsigned short SVG_MARKER_ORIENT_AUTO = 1;
+  const unsigned short SVG_MARKER_ORIENT_ANGLE = 2;
+
+  readonly attribute SVGAnimatedLength refX;
+  readonly attribute SVGAnimatedLength refY;
+  readonly attribute SVGAnimatedEnumeration markerUnits;
+  readonly attribute SVGAnimatedLength markerWidth;
+  readonly attribute SVGAnimatedLength markerHeight;
+  readonly attribute SVGAnimatedEnumeration orientType;
+  readonly attribute SVGAnimatedAngle orientAngle;
+
+  void setOrientToAuto() raises(DOMException);
+  void setOrientToAngle(in SVGAngle angle) raises(DOMException);
+};

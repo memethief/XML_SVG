@@ -1,0 +1,22 @@
+interface SVGClipPathElement : SVGElement,
+                               SVGTests,
+                               SVGLangSpace,
+                               SVGExternalResourcesRequired,
+                               SVGStylable,
+                               SVGTransformable,
+                               SVGUnitTypes {
+  readonly attribute SVGAnimatedEnumeration clipPathUnits;
+};
+interface SVGMaskElement : SVGElement,
+                           SVGTests,
+                           SVGLangSpace,
+                           SVGExternalResourcesRequired,
+                           SVGStylable,
+                           SVGUnitTypes {
+  readonly attribute SVGAnimatedEnumeration maskUnits;
+  readonly attribute SVGAnimatedEnumeration maskContentUnits;
+  readonly attribute SVGAnimatedLength x;
+  readonly attribute SVGAnimatedLength y;
+  readonly attribute SVGAnimatedLength width;
+  readonly attribute SVGAnimatedLength height;
+};

@@ -1,0 +1,7 @@
+interface SVGCursorElement : SVGElement,
+                             SVGURIReference,
+                             SVGTests,
+                             SVGExternalResourcesRequired {
+  readonly attribute SVGAnimatedLength x;
+  readonly attribute SVGAnimatedLength y;
+};

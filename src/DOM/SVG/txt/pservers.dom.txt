@@ -1,0 +1,54 @@
+The interface is a base interface used by and .
+interface SVGGradientElement : SVGElement,
+                               SVGURIReference,
+                               SVGExternalResourcesRequired,
+                               SVGStylable,
+                               SVGUnitTypes {
+
+  // Spread Method Types
+  const unsigned short SVG_SPREADMETHOD_UNKNOWN = 0;
+  const unsigned short SVG_SPREADMETHOD_PAD = 1;
+  const unsigned short SVG_SPREADMETHOD_REFLECT = 2;
+  const unsigned short SVG_SPREADMETHOD_REPEAT = 3;
+
+  readonly attribute SVGAnimatedEnumeration gradientUnits;
+  readonly attribute SVGAnimatedTransformList gradientTransform;
+  readonly attribute SVGAnimatedEnumeration spreadMethod;
+};
+The interface corresponds to the element.
+interface SVGLinearGradientElement : SVGGradientElement {
+  readonly attribute SVGAnimatedLength x1;
+  readonly attribute SVGAnimatedLength y1;
+  readonly attribute SVGAnimatedLength x2;
+  readonly attribute SVGAnimatedLength y2;
+};
+The interface corresponds to the element.
+interface SVGRadialGradientElement : SVGGradientElement {
+  readonly attribute SVGAnimatedLength cx;
+  readonly attribute SVGAnimatedLength cy;
+  readonly attribute SVGAnimatedLength r;
+  readonly attribute SVGAnimatedLength fx;
+  readonly attribute SVGAnimatedLength fy;
+};
+The interface corresponds to the element.
+interface SVGStopElement : SVGElement,
+                           SVGStylable {
+  readonly attribute SVGAnimatedNumber offset;
+};
+The interface corresponds to the element.
+interface SVGPatternElement : SVGElement,
+                              SVGURIReference,
+                              SVGTests,
+                              SVGLangSpace,
+                              SVGExternalResourcesRequired,
+                              SVGStylable,
+                              SVGFitToViewBox,
+                              SVGUnitTypes {
+  readonly attribute SVGAnimatedEnumeration patternUnits;
+  readonly attribute SVGAnimatedEnumeration patternContentUnits;
+  readonly attribute SVGAnimatedTransformList patternTransform;
+  readonly attribute SVGAnimatedLength x;
+  readonly attribute SVGAnimatedLength y;
+  readonly attribute SVGAnimatedLength width;
+  readonly attribute SVGAnimatedLength height;
+};

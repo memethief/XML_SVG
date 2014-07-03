@@ -1,0 +1,11 @@
+interface SVGForeignObjectElement : SVGElement,
+                                    SVGTests,
+                                    SVGLangSpace,
+                                    SVGExternalResourcesRequired,
+                                    SVGStylable,
+                                    SVGTransformable {
+  readonly attribute SVGAnimatedLength x;
+  readonly attribute SVGAnimatedLength y;
+  readonly attribute SVGAnimatedLength width;
+  readonly attribute SVGAnimatedLength height;
+};

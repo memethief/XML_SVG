@@ -1,0 +1,6 @@
+interface SVGStyleElement : SVGElement,
+                            SVGLangSpace {
+  attribute DOMString type setraises(DOMException);
+  attribute DOMString media setraises(DOMException);
+  attribute DOMString title setraises(DOMException);
+};
