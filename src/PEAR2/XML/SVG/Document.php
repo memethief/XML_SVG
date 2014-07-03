@@ -21,7 +21,7 @@ namespace PEAR2\XML\SVG;
  *
  * @package XML_SVG
  */
-class XML_SVG_Document extends \DOMDocument
+class Document extends \DOMDocument
 {
 	private static $singleton;
 

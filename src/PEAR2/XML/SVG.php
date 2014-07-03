@@ -8,6 +8,7 @@
  * @package XML_SVG
  * @license http://www.fsf.org/copyleft/lgpl.html
  */
+require_once 'XML/SVG/DOM.php';
 require_once 'XML/SVG/Animate.php';
 require_once 'XML/SVG/Circle.php';
 require_once 'XML/SVG/ClipPath.php';

@@ -1,0 +1,32 @@
+<?php 
+/** 
+ * Include all the SVG interfaces in the 'filters' category 
+ */ 
+
+include_once('SVGFilterElement.php');
+include_once('SVGFilterPrimitiveStandardAttributes.php');
+include_once('SVGFEBlendElement.php');
+include_once('SVGFEColorMatrixElement.php');
+include_once('SVGFEComponentTransferElement.php');
+include_once('SVGComponentTransferFunctionElement.php');
+include_once('SVGFEFuncRElement.php');
+include_once('SVGFEFuncGElement.php');
+include_once('SVGFEFuncBElement.php');
+include_once('SVGFEFuncAElement.php');
+include_once('SVGFECompositeElement.php');
+include_once('SVGFEConvolveMatrixElement.php');
+include_once('SVGFEDiffuseLightingElement.php');
+include_once('SVGFEDistantLightElement.php');
+include_once('SVGFEPointLightElement.php');
+include_once('SVGFESpotLightElement.php');
+include_once('SVGFEDisplacementMapElement.php');
+include_once('SVGFEFloodElement.php');
+include_once('SVGFEGaussianBlurElement.php');
+include_once('SVGFEImageElement.php');
+include_once('SVGFEMergeElement.php');
+include_once('SVGFEMergeNodeElement.php');
+include_once('SVGFEMorphologyElement.php');
+include_once('SVGFEOffsetElement.php');
+include_once('SVGFESpecularLightingElement.php');
+include_once('SVGFETileElement.php');
+include_once('SVGFETurbulenceElement.php');
